@@ -162,11 +162,10 @@ class NusoapBase {
 	* @access   public
 	*/
 	var $namespaces = array(
-		'soap' => 'http://schemas.xmlsoap.org/soap/envelope/',
+		'SOAP-ENV' => 'http://schemas.xmlsoap.org/soap/envelope/',
 		'xsd' => 'http://www.w3.org/2001/XMLSchema',
 		'xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
-		'SOAP-ENC' => 'http://schemas.xmlsoap.org/soap/encoding/',
-		'asmx' => 'http://hdi.com.mx/asmx/'
+		'SOAP-ENC' => 'http://schemas.xmlsoap.org/soap/encoding/'
 		);
 
 	/**
@@ -227,6 +226,15 @@ class NusoapBase {
 	*/
 	function __construct() {
 		$this->debugLevel = $GLOBALS['_transient']['static']['nusoap_base']['globalDebugLevel'];
+	}
+
+	/**
+	 * @param array $namespaces
+	 */
+	function setNameSpaces( $namespaces = array() ) {
+		if($namespaces) {
+			$this->namespaces = $namespaces;
+		}
 	}
 
 	/**

@@ -109,7 +109,7 @@ class NusoapClient extends NusoapBase  {
 
 		// make values
 		if($wsdl){
-			if (is_object($endpoint) && (get_class($endpoint) == 'Aw\Nusoa\Wsdl')) {
+			if (is_object($endpoint) && (get_class($endpoint) == 'Kiann\NuSoap\Wsdl')) {
 				$this->wsdl = $endpoint;
 				$this->endpoint = $this->wsdl->wsdl;
 				$this->wsdlFile = $this->endpoint;
