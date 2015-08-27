@@ -9,7 +9,7 @@ composer require kiann/nusoap:dev-master
 Usage
 ------
 ``` php
-use Aw\Nusoap\NusoapClient;
+use Kiann\Nusoap\NusoapClient;
 
        $client = new NusoapClient("https://yourserver.org?wsdl", true);
        $client->setNameSpaces(array(
