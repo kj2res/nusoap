@@ -163,7 +163,6 @@ class NusoapBase {
 	*/
 	var $namespaces = array(
 		'soap' => 'http://schemas.xmlsoap.org/soap/envelope/',
-		'SOAP-ENV' => 'http://schemas.xmlsoap.org/soap/envelope/',
 		'xsd' => 'http://www.w3.org/2001/XMLSchema',
 		'xsi' => 'http://www.w3.org/2001/XMLSchema-instance',
 		'SOAP-ENC' => 'http://schemas.xmlsoap.org/soap/encoding/'
