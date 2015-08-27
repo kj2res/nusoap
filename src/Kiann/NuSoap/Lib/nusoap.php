@@ -689,7 +689,7 @@ class nusoap_base {
 		$ns_string .= " xmlns:$k=\"$v\"";
 	}
 	if($encodingStyle) {
-		$ns_string = " SOAP-ENV:encodingStyle=\"$encodingStyle\"$ns_string";
+		$ns_string = " soap:encodingStyle=\"$encodingStyle\"$ns_string";
 	}
 
 	// serialize headers
@@ -706,17 +706,17 @@ class nusoap_base {
 			$headers = $xml;
 			$this->debug("In serializeEnvelope, serialized array of headers to $headers");
 		}
-		$headers = "<SOAP-ENV:Header>".$headers."</SOAP-ENV:Header>";
+		$headers = "<soap:Header>".$headers."</soap:Header>";
 	}
 	// serialize envelope
 	return
 	'<?xml version="1.0" encoding="'.$this->soap_defencoding .'"?'.">".
-	'<SOAP-ENV:Envelope'.$ns_string.">".
+	'<soap:Envelope'.$ns_string.">".
 	$headers.
-	"<SOAP-ENV:Body>".
+	"<soap:Body>".
 		$body.
-	"</SOAP-ENV:Body>".
-	"</SOAP-ENV:Envelope>";
+	"</soap:Body>".
+	"</soap:Envelope>";
     }
 
 	/**
