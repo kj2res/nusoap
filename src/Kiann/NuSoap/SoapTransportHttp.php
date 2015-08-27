@@ -1,5 +1,5 @@
 <?php
-
+namespace Kiann\NuSoap;
 
 
 
@@ -9,10 +9,11 @@
 *
 * @author   Dietrich Ayala <dietrich@ganx4.com>
 * @author   Scott Nichol <snichol@users.sourceforge.net>
-* @version  $Id: class.soap_transport_http.php,v 1.68 2010/04/26 20:15:08 snichol Exp $
+ * @author   Yamir Ramirez <ysramire@gmail.com>
+* @version  $Id: SoapTransportHttp.php,v 1.68 2015/05/18 20:15:08 snichol Exp $
 * @access public
 */
-class soap_transport_http extends nusoap_base {
+class SoapTransportHttp extends NusoapBase {
 
 	var $url = '';
 	var $uri = '';
@@ -57,8 +58,8 @@ class soap_transport_http extends nusoap_base {
 	* @param boolean $use_curl Whether to try to force cURL use
 	* @access public
 	*/
-	function soap_transport_http($url, $curl_options = NULL, $use_curl = false){
-		parent::nusoap_base();
+	function __construct($url, $curl_options = NULL, $use_curl = false){
+		parent::__construct();;
 		$this->debug("ctor url=$url use_curl=$use_curl curl_options:");
 		$this->appendDebug($this->varDump($curl_options));
 		$this->setURL($url);
@@ -968,7 +969,7 @@ class soap_transport_http extends nusoap_base {
         	$err = 'cURL ERROR: '.curl_errno($this->ch).': '.$cErr.'<br>';
         	// TODO: there is a PHP bug that can cause this to SEGV for CURLINFO_CONTENT_TYPE
 			foreach(curl_getinfo($this->ch) as $k => $v){
-				$err .= "$k: $v<br>";
+//				$err .= "$k: $v<br>"; //TODO this is a multilevel array error the information is for debuging http://stackoverflow.com/questions/22482881/notice-array-to-string-conversion-usign-nusoap
 			}
 			$this->debug($err);
 			$this->setError($err);
@@ -1302,6 +1303,3 @@ class soap_transport_http extends nusoap_base {
 		return $cookie_str;
   }
 }
-
-
-?>

@@ -1,17 +1,15 @@
 <?php
-
-
-
-
+namespace Kiann\NuSoap;
 /**
 * Contains information for a SOAP fault.
 * Mainly used for returning faults from deployed functions
 * in a server instance.
 * @author   Dietrich Ayala <dietrich@ganx4.com>
+ * @author   Yamir Ramirez <ysramire@gmail.com>
 * @version  $Id: class.soap_fault.php,v 1.14 2007/04/11 15:49:47 snichol Exp $
 * @access public
 */
-class nusoap_fault extends nusoap_base {
+class NusoapFault extends NusoapBase {
 	/**
 	 * The fault code (client|server)
 	 * @var string
@@ -45,8 +43,8 @@ class nusoap_fault extends nusoap_base {
     * @param string $faultstring human readable error message
     * @param mixed $faultdetail detail, typically a string or array of string
 	*/
-	function nusoap_fault($faultcode,$faultactor='',$faultstring='',$faultdetail=''){
-		parent::nusoap_base();
+	function __construct($faultcode,$faultactor='',$faultstring='',$faultdetail=''){
+		parent::__construct();;
 		$this->faultcode = $faultcode;
 		$this->faultactor = $faultactor;
 		$this->faultstring = $faultstring;
@@ -83,8 +81,6 @@ class nusoap_fault extends nusoap_base {
 /**
  * Backward compatibility
  */
-class soap_fault extends nusoap_fault {
+class soap_fault extends NusoapFault {
 }
 
-
-?>
