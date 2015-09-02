@@ -297,11 +297,11 @@ class NusoapClient extends NusoapBase  {
 			// fault?
 			if(is_array($return) && isset($return['faultcode'])){
 				$this->debug('got fault');
-				$this->setError($return['faultcode'].': '.$return['faultstring']);
+				$this->setError($return['faultcode'].': ', $return['faultstring']);
 				$this->fault = true;
 				foreach($return as $k => $v){
 					$this->$k = $v;
-					$this->debug("$k = $v<br>");
+					$this->debug("$k = <br>", $v);
 				}
 				return $return;
 			} elseif ($style == 'document') {
