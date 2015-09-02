@@ -287,7 +287,7 @@ class NusoapBase {
 		if($desc && is_array($desc)) {
 			$desc = implode('|', $desc);
 		}
-		else if($desc && is_string($desc){
+		else if($desc && is_string($desc)){
 			// as is
 		}
 		else {
@@ -393,7 +393,7 @@ class NusoapBase {
 		if($desc && is_array($desc)) {
 			$desc = implode('|', $desc);
 		}
-		else if($desc && is_string($desc){
+		else if($desc && is_string($desc)){
 			// as is
 		}
 		else {
