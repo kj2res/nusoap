@@ -283,7 +283,7 @@ class NusoapBase {
 	* @param    string $string debug data
 	* @access   private
 	*/
-	function debug($string, $desc){
+	function debug($string, $desc = null){
 		if($desc && is_array($desc)) {
 			$desc = implode('|', $desc);
 		}
@@ -386,7 +386,7 @@ class NusoapBase {
 	* @return   boolean $string error string
 	* @access   private
 	*/
-	function setError($str, $desc){
+	function setError($str, $desc = null){
 		if($desc && is_array($desc)) {
 			$desc = implode('|', $desc);
 		}
