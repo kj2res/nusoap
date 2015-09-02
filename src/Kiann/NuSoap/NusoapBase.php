@@ -287,6 +287,9 @@ class NusoapBase {
 		if($desc && is_array($desc)) {
 			$desc = implode('|', $desc);
 		}
+		else if($desc && is_string($desc){
+			// as is
+		}
 		else {
 			$desc = '';
 		}
@@ -389,6 +392,9 @@ class NusoapBase {
 	function setError($str, $desc = null){
 		if($desc && is_array($desc)) {
 			$desc = implode('|', $desc);
+		}
+		else if($desc && is_string($desc){
+			// as is
 		}
 		else {
 			$desc = '';
