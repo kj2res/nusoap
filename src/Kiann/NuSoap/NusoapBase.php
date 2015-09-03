@@ -283,19 +283,10 @@ class NusoapBase {
 	* @param    string $string debug data
 	* @access   private
 	*/
-	function debug($string, $desc = null){
-		if($desc && is_array($desc)) {
-			$desc = implode('|', $desc);
-		}
-		else if($desc && is_string($desc)){
-			// as is
-		}
-		else {
-			$desc = '';
-		}
-
+	function debug($string){
 		if ($this->debugLevel > 0) {
-			$this->appendDebug($this->getmicrotime().' '.get_class($this).": $string $desc\n");
+			$string = json_encode($string);
+			$this->appendDebug($this->getmicrotime().' '.get_class($this).": $string\n");
 		}
 	}
 
@@ -389,17 +380,8 @@ class NusoapBase {
 	* @return   boolean $string error string
 	* @access   private
 	*/
-	function setError($str, $desc = null){
-		if($desc && is_array($desc)) {
-			$desc = implode('|', $desc);
-		}
-		else if($desc && is_string($desc)){
-			// as is
-		}
-		else {
-			$desc = '';
-		}
-		$this->error_str = $str . ' ' . $desc;
+	function setError($str){
+		$this->error_str = json_encode($str);
 	}
 
 	/**
