@@ -297,12 +297,12 @@ class NusoapClient extends NusoapBase  {
 			// fault?
 			if(is_array($return) && isset($return['faultcode'])){
 				$this->debug('got fault');
-				$this->setError($return['faultcode'].': '.$return['faultstring']);
+				$this->setError($return['faultcode'].': '.json_encode($return['faultstring']));
 				$this->fault = true;
-				foreach($return as $k => $v){
-					$this->$k = $v;
-					$this->debug("$k = $v<br>");
-				}
+				// foreach($return as $k => $v){
+				// 	$this->$k = $v;
+				// 	$this->debug("$k = $v<br>");
+				// }
 				return $return;
 			} elseif ($style == 'document') {
 				// NOTE: if the response is defined to have multiple parts (i.e. unwrapped),
