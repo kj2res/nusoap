@@ -285,7 +285,6 @@ class NusoapBase {
 	*/
 	function debug($string){
 		if ($this->debugLevel > 0) {
-			$string = json_encode($string);
 			$this->appendDebug($this->getmicrotime().' '.get_class($this).": $string\n");
 		}
 	}
@@ -381,7 +380,7 @@ class NusoapBase {
 	* @access   private
 	*/
 	function setError($str){
-		$this->error_str = json_encode($str);
+		$this->error_str = $str;
 	}
 
 	/**
